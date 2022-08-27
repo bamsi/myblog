@@ -60,6 +60,9 @@ development:
 test:
   <<: *default
   database: myblog_test
+  database: blog_db
+  username: postgres
+  password: bamsi
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
