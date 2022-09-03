@@ -20,12 +20,12 @@ RSpec.describe PostsController, :type => :controller do
 
   describe "GET #show" do
     it "returns a 200 status code" do
-      subject { get :index, params: {  id: @post.id, user_id: @user.id } }
+      subject { get :show, params: {  id: @post.id, user_id: @user.id } }
       expect(subject).to have_http_status(200)
     end
 
     it "render show template" do
-      subject { get :index, params: { user_id: @user.id } }
+      subject { get :show, params: { id: @post.id, user_id: @user.id } }
       expect(subject).to render_template('show')
     end
   end
