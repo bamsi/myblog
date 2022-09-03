@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe PostsController, type: :controller do
+RSpec.describe PostsController, type: :request do
   before do
     @user = User.create(name: 'Tom', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Mexico.')
     @post = Post.create(title: 'Title', text: 'Body', author_id: @user.id)
@@ -15,6 +15,11 @@ RSpec.describe PostsController, type: :controller do
       subject { get :index, params: { user_id: @user.id } }
       expect(subject).to render_template('index')
     end
+
+    it 'the response body includes correct placeholder' do
+      subject { get :index, params: { user_id: @user.id } }
+      expect(subject.body).to include('Here is a list of posts for a given user')
+    end
   end
 
   describe 'GET #show' do
@@ -26,6 +31,10 @@ RSpec.describe PostsController, type: :controller do
     it 'render show template' do
       subject { get :show, params: { user_id: @user.id, id: @post.id } }
       expect(subject).to render_template('show')
+    end
+    it 'the response body includes correct placeholder' do
+      subject { get :show, params: { user_id: @user.id, id: @post.id } }
+      expect(subject.body).to include('Here is a list of comments of the given user post')
     end
   end
 end
