@@ -3,16 +3,16 @@ class Post < ApplicationRecord
   has_many :comments
   has_many :likes
 
-  Validate :title, presence: true
-  Validate :title, length: { maximum: 250 }
-  Validate :comments_counter, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
-  Validate :likes_counter, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+  validates :title, presence: true
+  validates :title, length: { maximum: 250 }
+  validates :comments_counter, numericality: { only_integer: true }, comparison: { greater_than_or_equal_to: 0 }
+  validates :likes_counter, numericality: { only_integer: true }, comparison: { greater_than_or_equal_to: 0 }
 
   after_save :update_post
 
   # A method that updates the posts counter for a user.
   def update_post
-    user.increment!(:post_counter)
+    author.increment!(:posts_counter)
   end
 
   # A method which returns the 5 most recent comments for a given post.
