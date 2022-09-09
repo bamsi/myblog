@@ -1,1 +1,20 @@
-<p>Here is the details for a user</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Users</title>
+</head>
+<body>
+ <div>
+  <%= render partial: "shared/user", locals: { user: @user } %>
+  <div>
+    <h2>Bio</h2>
+    <p><%= @user.bio %></p>
+  <div>
+  <div>
+    <% @user.recent_posts(@user.id).each do |post| %>
+      <%= render partial: "shared/post", locals: { post: post } %>
+    <% end %>
+  </div>
+ </div>
+</body>
+</html>

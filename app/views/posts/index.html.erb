@@ -1,1 +1,19 @@
-<p>Here is a list of posts for a given user</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>User's posts</title>
+</head>
+<body>
+ <div>
+  <%= render partial: "shared/user", locals: { user: @user } %>
+
+  <% @posts.each do |post| %>
+    <%= render partial: "shared/post", locals: { post: post } %>
+
+    <% post.recent_comments(post.id) do |comment| %>
+       <p>Comment # <%= comment.text %></p>
+    <% end %>
+  <% end %>
+ </div>
+</body>
+</html>
