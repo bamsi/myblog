@@ -9,7 +9,6 @@ class CommentsController < ApplicationController
     @comment.author = current_user
 
     redirect_to user_post_path(current_user, @post) if @comment.save
-    render plain: 'Error occured while saving data'
   end
 
   def comment_params
