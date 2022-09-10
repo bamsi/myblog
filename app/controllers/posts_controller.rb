@@ -17,9 +17,8 @@ class PostsController < ApplicationController
     @post.author = current_user
     @post.comments_counter = 0
     @post.likes_counter = 0
-    if @post.save
-      redirect_to user_posts_path(current_user.id)
-    end
+    redirect_to user_posts_path(current_user.id) if @post.save
+    render plain: 'Error occured while saving data'
   end
 
   def post_params

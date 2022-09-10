@@ -1,6 +1,5 @@
 class CommentsController < ApplicationController
-
-  def new 
+  def new
     @comment = Comment.new
   end
 
@@ -8,10 +7,9 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:id])
     @comment = @post.comments.build(comment_params)
     @comment.author = current_user
-    
-    if @comment.save
-      redirect_to user_post_path(current_user, @post)
-    end
+
+    redirect_to user_post_path(current_user, @post) if @comment.save
+    render plain: 'Error occured while saving data'
   end
 
   def comment_params

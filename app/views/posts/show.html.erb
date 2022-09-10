@@ -17,7 +17,6 @@
     <% @post.comments.includes(:author).each do |comment| %>
       <p><%= comment.author.name %>:<%= comment.text %></p>
     <% end %>
-    <a href="<%= new_comment_path(id: @post.id) %>">New Comment</a>
   </div>
  </div>
 </body>
