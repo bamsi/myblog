@@ -1,0 +1,14 @@
+<h1>New Post</h1>
+<%= form_with model: @post, url: new_post_path  do |f| %>
+  <div>
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div>
+    <%= f.label :Text %><br>
+    <%= f.text_area :text, size: "70x5"%>
+  </div>
+  <div>
+    <%= f.submit "Add Post" %>
+  </div>
+<% end %>

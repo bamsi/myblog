@@ -2,4 +2,13 @@
   <h2><a href="<%= user_post_path(user_id: user.id, id: post.id) %>">Post #<%= post.id %></a></h2>
   <p><%= post.text %></p>
   <span>Comments: <%= post.comments_counter%>, Likes: <%= post.likes_counter%></span>
+
+  <div>
+      <span>
+        <%= button_to "Add Comment", new_comment_path(id: post.id), :method => "get" %>
+      </span>
+      <span>
+         <%= button_to "Like this post", like_post_path(id: post.id), :method => "post" %>
+      </span>
+  </div>
 </div>
