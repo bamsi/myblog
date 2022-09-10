@@ -7,7 +7,9 @@
  <div>
  <% @users.each do |user| %>
   <%= render partial: "shared/user", locals: { user: user } %>
-<% end %>
+ <% end %>
+
+ <%= button_to "New Post", new_post_path, :method => "get" %>
  </div>
 </body>
 </html>
