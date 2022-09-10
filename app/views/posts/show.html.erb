@@ -1,1 +1,23 @@
-<p>Here is a list of comments of the given user post</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>User's posts</title>
+</head>
+<body>
+ <div>
+  
+  <div>
+  <div>
+    <h2>Post #<%= @post.id %></h2>
+    <span>Comments: <%= @post.comments_counter%>, Likes: <%= @post.likes_counter%></span>
+  </div>
+    <p><%= @post.text %></p>
+  </div>
+  <div>
+    <% @post.comments.includes(:author).each do |comment| %>
+      <p><%= comment.author.name %>:<%= comment.text %></p>
+    <% end %>
+  </div>
+ </div>
+</body>
+</html>
