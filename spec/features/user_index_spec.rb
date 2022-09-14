@@ -2,13 +2,14 @@ require 'rails_helper'
 
 RSpec.describe User, type: :feature do
   before :each do
-    @user = User.new(name: 'Tom', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Mexico.', posts_counter: 0)
-    @post = Post.new(author: @user, title: 'Hello', text: 'This is my first post', comments_counter: 0, likes_counter: 0)
+    @user = User.new(name: 'Tom', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Mexico.',
+                     posts_counter: 0)
+    @post = Post.new(author: @user, title: 'Hello', text: 'This is my first post', comments_counter: 0,
+                     likes_counter: 0)
     @post.save!
     visit users_path
   end
 
-  
   context 'User index page' do
     it 'I can see the username of all other users' do
       expect(page).to have_content('Tom')
@@ -27,5 +28,4 @@ RSpec.describe User, type: :feature do
       expect(page).to have_content('This is my first post')
     end
   end
-
 end

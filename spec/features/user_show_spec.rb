@@ -2,15 +2,15 @@ require 'rails_helper'
 
 RSpec.describe User, type: :feature do
   before :each do
-    @user = User.new(name: 'Tom', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Mexico.', posts_counter: 0)
-    @post = Post.new(author: @user, title: 'Hello', text: 'This is my first post', comments_counter: 0, likes_counter: 0)
+    @user = User.new(name: 'Tom', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Mexico.',
+                     posts_counter: 0)
+    @post = Post.new(author: @user, title: 'Hello', text: 'This is my first post', comments_counter: 0,
+                     likes_counter: 0)
     @post.save!
     visit user_path(@user.id)
   end
 
-  
   context 'User show page' do
-
     it 'I can see the users profile picture' do
       expect(page.html).to include('F_-0BxGuVvo')
     end
@@ -45,5 +45,4 @@ RSpec.describe User, type: :feature do
       expect(page).to have_content('This is my first post')
     end
   end
-
 end

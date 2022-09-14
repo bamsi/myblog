@@ -19,7 +19,7 @@ RSpec.describe PostsController, type: :request do
 
     it 'the response body includes correct placeholder' do
       get users_path
-      expect(response.body).not_to  include('Here is a list of users')
+      expect(response.body).not_to include('Here is a list of users')
     end
   end
 
@@ -36,7 +36,7 @@ RSpec.describe PostsController, type: :request do
 
     it 'the response body includes correct placeholder' do
       get user_path(id: @user.id)
-      expect(response.body).not_to  include('Here is the details for a user')
+      expect(response.body).not_to include('Here is the details for a user')
     end
   end
 end
