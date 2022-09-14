@@ -51,17 +51,17 @@ RSpec.configure do |config|
   #   # is tagged with `:focus`, all examples get run. RSpec also provides
   #   # aliases for `it`, `describe`, and `context` that include `:focus`
   #   # metadata: `fit`, `fdescribe` and `fcontext`, respectively.
-  #   config.filter_run_when_matching :focus
+  config.filter_run_when_matching :focus
   #
   #   # Allows RSpec to persist some state between runs in order to support
   #   # the `--only-failures` and `--next-failure` CLI options. We recommend
   #   # you configure your source control system to ignore this file.
-  #   config.example_status_persistence_file_path = "spec/examples.txt"
+  config.example_status_persistence_file_path = "spec/examples.txt"
   #
   #   # Limits the available syntax to the non-monkey patched syntax that is
   #   # recommended. For more details, see:
   #   # https://relishapp.com/rspec/rspec-core/docs/configuration/zero-monkey-patching-mode
-  #   config.disable_monkey_patching!
+  config.disable_monkey_patching!
   #
   #   # This setting enables warnings. It's recommended, but in some cases may
   #   # be too noisy due to issues in dependencies.
