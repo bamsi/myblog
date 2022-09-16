@@ -75,7 +75,6 @@ group :test do
   gem 'webdrivers'
 end
 
-gem 'ffi', '~> 1.15', '>= 1.15.5'
-gem 'devise'
 gem 'cancancan'
-
+gem 'devise'
+gem 'ffi', '~> 1.15', '>= 1.15.5'
