@@ -1,6 +1,6 @@
-class API::V1::UsersController < ApplicationController
+class Api::UsersController < ApplicationController
   # before_action :authorize_request, except: :create
-  
+
   before_action :set_user, only: %i[show]
 
   def index
