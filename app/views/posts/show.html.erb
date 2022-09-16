@@ -16,6 +16,10 @@
   <div>
     <% @post.comments.includes(:author).each do |comment| %>
       <p><%= comment.author.name %>:<%= comment.text %></p>
+      
+      <% if can? :delete, comment %>
+        <%= button_to "Delete", delete_comment_path(comment.id), method: :delete, class: "btn btn-outline-danger btn-sm" %>
+      <% end %>
     <% end %>
   </div>
  </div>
