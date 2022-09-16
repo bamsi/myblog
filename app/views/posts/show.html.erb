@@ -19,7 +19,7 @@
       
       <% if can? :delete, comment %>
         <%= button_to "Delete", user_post_path(comment.post,comment.user, comment), method: :delete, class: "btn btn-outline-danger btn-sm" %>
-      <% end %
+      <% end %>
     <% end %>
   </div>
  </div>
