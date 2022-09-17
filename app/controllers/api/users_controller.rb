@@ -14,13 +14,13 @@ class Api::UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id]).includes(:posts)
-    @posts = @user.posts
+    @user = User.find(params[:id])
+    @posts = Post.where('author_id=?', @user.id)
 
-    if @posts.empty?
-      render json: { message: 'No posts yet' }, status: :not_found
-    else
+    if @posts.present?  
       render json: @posts
+    else
+      render json: { message: 'No posts yet' }, status: :not_found
     end
   end
 

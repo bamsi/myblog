@@ -78,3 +78,4 @@ end
 gem 'cancancan'
 gem 'devise'
 gem 'ffi', '~> 1.15', '>= 1.15.5'
+gem 'rswag'
